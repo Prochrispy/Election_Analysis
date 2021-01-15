@@ -17,8 +17,7 @@ total_votes = 0
 candidate_options = []
 candidate_votes = {}
 
-# 1: Create a county list and county votes dictionary.
-
+# 1: Create a county list and county votes dictionary
 county_list = []
 county_votes = {}
 
@@ -97,12 +96,12 @@ with open(file_to_save, "w") as txt_file:
     for county_name in county_votes:
 
         # 6b: Retrieve the county vote count.
-        cvotes = county_votes.get(county_name)
+        cvote = county_votes.get(county_name)
        
         # 6c: Calculate the percent of total votes for the county.
-        County_vote_percentage = float(cvotes) / float(total_votes) * 100
+        County_vote_percentage = float(cvote) / float(total_votes) * 100
         County_vote_results = (
-            f"{county_name}: {County_vote_percentage:.1f}% ({cvotes:,})\n")
+            f"{county_name}: {County_vote_percentage:.1f}% ({cvote:,})\n")
 
 
          # 6d: Print the county results to the terminal.
@@ -112,8 +111,8 @@ with open(file_to_save, "w") as txt_file:
         txt_file.write(County_vote_results)
 
          # 6f: Write a decision statement to determine the winning county and get its vote count.
-        if (cvotes > county_vote_count) and (County_vote_percentage > winning_vote_percentage):
-            County_vote_count = cvotes
+        if (cvote > county_vote_count) and (County_vote_percentage > winning_vote_percentage):
+            County_vote_count = cvote
             most_county_votes = county_name
             winning_vote_percentage = County_vote_percentage 
 
